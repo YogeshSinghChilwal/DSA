@@ -3,6 +3,9 @@
 
 using namespace std;
 
+//& Repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.
+
+
 /*
 Given an Integer n and a list arr. Sort the array using bubble sort algorithm.
 

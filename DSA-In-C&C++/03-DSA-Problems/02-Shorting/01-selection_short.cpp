@@ -2,6 +2,8 @@
 #include<algorithm>
 using namespace std;
 
+//& Divides the array into a sorted and an unsorted part, repeatedly selecting the smallest element from the unsorted part and moving it to the sorted part.
+
 //? Given an unsorted array of size N, use selection sort to sort arr[] in increasing order.
 
 /*

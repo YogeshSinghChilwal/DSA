@@ -32,7 +32,7 @@ int trapBrute(vector<int> &height)
     return trapWater;
 }
 
-int trap(vector<int> &height)
+int trapMoreSpace(vector<int> &height)
 {
     int n = height.size();
     vector<int> leftMax(n, 0);
@@ -59,8 +59,37 @@ int trap(vector<int> &height)
     return trapWater;
 }
 
+//Optimal
+int trap(vector<int> &height){
+    int n = height.size();
+    int result = 0;
+    int l = 0;
+    int r = n - 1;
+
+    int lMax = 0;
+    int rMax = 0;
+
+    while (l < r)
+    {
+        lMax = max(lMax, height[l]);
+        rMax = max(rMax, height[r]);
+
+        if (lMax <= rMax)
+        {
+            result += lMax - height[l];
+            l++;
+        }else{
+            result += rMax - height[r];
+            r--;
+        }
+        
+    }
+    return result;
+    
+}
+
 int main()
 {
-    vector<int> arr = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+    vector<int> arr = {4,2,0,3,2,5};
     cout << trap(arr);
 }

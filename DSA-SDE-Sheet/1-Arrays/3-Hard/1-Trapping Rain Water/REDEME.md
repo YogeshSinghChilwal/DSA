@@ -92,3 +92,57 @@ int trap(vector<int> &height)
 }
 
 ```
+
+### 3.Intuition
+Instead of precomputing left and right maximums for each index using extra space, we can use two pointers (l and r) starting from both ends. At each step, we can decide which side to move based on the current lMax and rMax. The idea is:
+
+Water trapped at any index is determined by the shorter of the two tallest bars (left and right).
+
+So, if lMax <= rMax, we know that the trapped water on the left depends only on lMax, and we can safely move l forward.
+
+Else, we move r backward and use rMax.
+
+### Approach
+Initialize two pointers: l = 0, r = n - 1.
+
+Keep track of the maximum height seen so far from both left (lMax) and right (rMax).
+
+While l < r:
+
+Update lMax and rMax.
+
+If lMax <= rMax, then calculate water at l, update result, and move l++.
+
+Otherwise, calculate water at r, update result, and move r--.
+
+Return the total water trapped.
+
+```cpp
+int trap(vector<int> &height){
+    int n = height.size();
+    int result = 0;
+    int l = 0;
+    int r = n - 1;
+
+    int lMax = 0;
+    int rMax = 0;
+
+    while (l < r)
+    {
+        lMax = max(lMax, height[l]);
+        rMax = max(rMax, height[r]);
+
+        if (lMax <= rMax)
+        {
+            result += lMax - height[l];
+            l++;
+        }else{
+            result += rMax - height[r];
+            r--;
+        }
+        
+    }
+    return result;
+    
+}
+```

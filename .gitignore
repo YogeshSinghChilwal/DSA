@@ -1,0 +1,50 @@
+# Build artifacts (C/C++)
+*.o
+*.out
+*.exe
+*.a
+*.so
+*.dll
+
+# Build directories
+/build/
+/bin/
+/obj/
+
+# Debugging files
+*.dSYM/
+*.pdb
+
+# Log and temporary files
+*.log
+*.tmp
+
+# IDE specific
+.vscode/
+*.code-workspace
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+Makefile
+*.cmake
+
+# Node.js (JavaScript/TypeScript)
+node_modules/
+dist/
+npm-debug.log*
+yarn-error.log*
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+pip-log.txt
+
+# Misc
+.DS_Store
